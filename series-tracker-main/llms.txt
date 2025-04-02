@@ -1,0 +1,73 @@
+Uso de la API de Series Tracker
+
+La API de Series Tracker permite gestionar información sobre series de TV, incluyendo el seguimiento de episodios y la gestión de rankings.
+
+Endpoints disponibles:
+
+1. Obtener todas las series:
+   - Método: GET
+   - URL: /api/series
+   - Descripción: Retorna una lista de todas las series disponibles.
+
+2. Crear una nueva serie:
+   - Método: POST
+   - URL: /api/series
+   - Cuerpo:
+     {
+       "title": "Nombre de la serie",
+       "status": "Estado de la serie",
+       "lastEpisodeWatched": Número del último episodio visto,
+       "totalEpisodes": Total de episodios disponibles,
+       "ranking": Ranking de la serie
+     }
+   - Descripción: Crea una nueva serie en el sistema.
+
+3. Obtener una serie por ID:
+   - Método: GET
+   - URL: /api/series/{id}
+   - Descripción: Obtiene los detalles de una serie según el ID.
+
+4. Actualizar una serie:
+   - Método: PUT
+   - URL: /api/series/{id}
+   - Cuerpo:
+     {
+       "title": "Nuevo nombre",
+       "status": "Nuevo estado",
+       "lastEpisodeWatched": Nuevo episodio visto,
+       "totalEpisodes": Nuevo total de episodios,
+       "ranking": Nuevo ranking
+     }
+   - Descripción: Actualiza los detalles de una serie.
+
+5. Eliminar una serie:
+   - Método: DELETE
+   - URL: /api/series/{id}
+   - Descripción: Elimina una serie por su ID.
+   
+6. Actualizar el estado de una serie:
+   - Método: PATCH
+   - URL: /api/series/{id}/status
+   - Cuerpo:
+     {
+       "status": "Nuevo estado"
+     }
+   - Descripción: Actualiza el estado de la serie (ej. "en emisión", "terminada", etc.).
+
+7. Incrementar episodio:
+   - Método: PATCH
+   - URL: /api/series/{id}/episode
+   - Descripción: Incrementa el contador de episodios vistos de la serie.
+
+8. Votar por una serie (Upvote):
+   - Método: PATCH
+   - URL: /api/series/{id}/upvote
+   - Descripción: Incrementa el ranking de la serie.
+
+9. Votar en contra de una serie (Downvote):
+   - Método: PATCH
+   - URL: /api/series/{id}/downvote
+   - Descripción: Decrementa el ranking de la serie.
+
+Autenticación y autorizaciones: No se requiere autenticación para los endpoints en esta versión de la API.
+
